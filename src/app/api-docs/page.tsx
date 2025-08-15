@@ -24,27 +24,27 @@ export default function ApiDocsPage() {
         <h4 className="font-semibold mb-2">Response Format</h4>
         <pre className="bg-gray-100 p-3 rounded-md text-sm overflow-auto mb-4">
           {`Content-Type: application/json
-Cache-Control: no-cache
-Connection: keep-alive
+            Cache-Control: no-cache
+            Connection: keep-alive
 
-{"id":"chunk-1","title":"Data Chunk 1","content":"...","timestamp":1234567890}
-{"id":"chunk-2","title":"Data Chunk 2","content":"...","timestamp":1234567891}
-...`}
+            {"id":"chunk-1","title":"Data Chunk 1","content":"...","timestamp":1234567890}
+            {"id":"chunk-2","title":"Data Chunk 2","content":"...","timestamp":1234567891}
+            ...`}
         </pre>
 
         <h4 className="font-semibold mb-2">Data Chunk Schema</h4>
         <pre className="bg-gray-100 p-3 rounded-md text-sm overflow-auto">
           {`{
-  "id": string,
-  "title": string,
-  "content": string,
-  "timestamp": number,
-  "metadata": {
-    "source": string,
-    "category": string,
-    "priority": number
-  }
-}`}
+            "id": string,
+            "title": string,
+            "content": string,
+            "timestamp": number,
+            "metadata": {
+              "source": string,
+              "category": string,
+              "priority": number
+            }
+        }`}
         </pre>
       </section>
 

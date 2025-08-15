@@ -10,8 +10,8 @@ This is a recruitment interview task where candidates need to implement efficien
 
 ### Prerequisites
 
-- Node.js 18.18.0 or later
-- npm or yarn package manager
+- Node.js 22 or later
+- npm, pnpm or yarn package manager
 
 ### Installation
 
