@@ -1,42 +1,80 @@
 "use client";
 
-import { useState } from "react";
-import { MCPRequest, MCPResponse } from "@/types/streaming";
+import { useRef, useState } from "react";
+import { MCPResponse } from "@/types/streaming";
+
+import { CityCards } from "./CityCards";
 
 export function MCPClient() {
-  const [request, setRequest] = useState<string>(
-    '{"method": "list_resources", "params": {}}'
-  );
   const [response, setResponse] = useState<MCPResponse | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const wsRef = useRef<WebSocket | null>(null);
 
-  const sendMCPRequest = async () => {
+  const [prompt, setPrompt] = useState("Give me 5 cities in Europe.");
+
+  const [chunks, setChunks] = useState<string[]>([]);
+
+  const sendMCPRequest = () => {
     setIsLoading(true);
     setResponse(null);
+    setChunks([]);
 
-    try {
-      const parsedRequest: MCPRequest = JSON.parse(request);
-
-      const res = await fetch("/api/stream-data", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(parsedRequest),
-      });
-
-      const data = await res.json();
-      setResponse(data);
-    } catch (error) {
-      setResponse({
-        error: {
-          code: -32700,
-          message: error instanceof Error ? error.message : "Unknown error",
-        },
-      });
-    } finally {
-      setIsLoading(false);
+    // Close previous connection if any
+    if (wsRef.current) {
+      wsRef.current.close();
     }
+
+    const ws = new window.WebSocket("ws://localhost:4000");
+    wsRef.current = ws;
+
+    ws.onopen = () => {
+      try {
+        ws.send(
+          JSON.stringify({
+            jsonrpc: "2.0",
+            id: 1,
+            method: "generateCities",
+            params: { model: "gemini-2.5-pro", prompt: prompt },
+          })
+        );
+      } catch (error) {
+        setResponse({
+          error: {
+            code: -32700,
+            message: error instanceof Error ? error.message : "Unknown error",
+          },
+        });
+        setIsLoading(false);
+        ws.close();
+      }
+    };
+
+    ws.onmessage = (event) => {
+      try {
+        const msg = JSON.parse(event.data);
+        if (msg.result?.chunk) {
+          setChunks((prev) => [...prev, msg.result.chunk]);
+        }
+        if (msg.result?.done) {
+          setIsLoading(false);
+          ws.close();
+        }
+        if (msg.error) {
+          setResponse({ error: msg.error });
+          setIsLoading(false);
+          ws.close();
+        }
+      } catch (error) {
+        setResponse({
+          error: {
+            code: -32700,
+            message: "Failed to parse MCP server response",
+          },
+        });
+        setIsLoading(false);
+        ws.close();
+      }
+    };
   };
 
   return (
@@ -48,17 +86,17 @@ export function MCPClient() {
         <p className="text-sm text-orange-700">
           This component needs to be implemented to communicate with MCP
           servers. The MCP (Model Context Protocol) allows structured
-          communication with AI models and tools.
+          communication with AI models and tools. You should implement it to
+          give you information about cities in a structure json format. Then you
+          could ask e.g. about european cities, or worlds largest cities etc.
         </p>
       </div>
 
       <div>
-        <label className="block text-sm font-medium mb-2">
-          MCP Request JSON:
-        </label>
+        <label className="block text-sm font-medium mb-2">MCP Request:</label>
         <textarea
-          value={request}
-          onChange={(e) => setRequest(e.target.value)}
+          value={prompt}
+          onChange={(e) => setPrompt(e.target.value)}
           className="w-full h-32 p-3 border border-gray-300 rounded-md font-mono text-sm"
           placeholder="Enter MCP request JSON..."
         />
@@ -72,15 +110,34 @@ export function MCPClient() {
         {isLoading ? "Sending..." : "Send MCP Request"}
       </button>
 
-      {response && (
+      {/*(chunks.length > 0 || response) && (
         <div>
-          <label className="block text-sm font-medium mb-2">Response:</label>
+          <label className="block text-sm font-medium mb-2">
+            Response (should look visually nicer than now):
+          </label>
           <pre className="bg-gray-100 p-3 rounded-md text-sm overflow-auto">
-            {JSON.stringify(response, null, 2)}
+            {chunks.length > 0
+              ? chunks.join("\n")
+              : response
+              ? JSON.stringify(response, null, 2)
+              : ""}
           </pre>
         </div>
+      )*/}
+      {(chunks.length > 0 || response) && (
+        <div>
+          <label className="block text-sm font-medium mb-2">
+            Response (should look visually nicer than now):
+          </label>
+          {chunks.length > 0 ? (
+            <CityCards chunks={chunks} />
+          ) : response ? (
+            <pre className="bg-gray-100 p-3 rounded-md text-sm overflow-auto">
+              {JSON.stringify(response, null, 2)}
+            </pre>
+          ) : null}
+        </div>
       )}
-
       <div className="bg-blue-50 border border-blue-200 p-4 rounded-lg">
         <h4 className="font-semibold text-blue-800 mb-2">
           💡 Implementation Hints

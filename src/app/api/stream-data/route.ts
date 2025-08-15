@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 import { DataChunk } from "@/types/streaming";
-
+import WebSocket from "ws";
 // Mock data generator - in real implementation, this would fetch from MCP protocol
 function generateMockData(): DataChunk[] {
   const categories = ["news", "tech", "science", "business"];
@@ -58,32 +58,52 @@ export async function GET(request: NextRequest) {
 }
 
 // TODO: Implement POST method for MCP protocol requests
+
 export async function POST(request: NextRequest) {
-  try {
-    const body = await request.json();
+  const { prompt } = await request.json();
 
-    // TODO: Implement MCP protocol communication
-    // This is where candidates should implement the actual MCP client
+  const stream = new ReadableStream({
+    start(controller) {
+      const ws = new WebSocket("ws://localhost:4000");
 
-    return Response.json(
-      {
-        error: {
-          code: -32601,
-          message:
-            "MCP protocol not implemented yet - this is part of the challenge!",
-        },
-      },
-      { status: 501 }
-    );
-  } catch (error) {
-    return Response.json(
-      {
-        error: {
-          code: -32700,
-          message: "Parse error",
-        },
-      },
-      { status: 400 }
-    );
-  }
+      ws.on("open", () => {
+        ws.send(
+          JSON.stringify({
+            jsonrpc: "2.0",
+            id: 1,
+            method: "generateCities",
+            params: { model: "gemini-pro", prompt },
+          })
+        );
+      });
+
+      ws.on("message", (raw: { toString: () => string }) => {
+        const msg = JSON.parse(raw.toString());
+
+        if (msg.result?.chunk) {
+          controller.enqueue(
+            new TextEncoder().encode(JSON.stringify(msg.result) + "\n")
+          );
+        }
+        if (msg.result?.done) {
+          controller.close();
+          ws.close();
+        }
+        if (msg.error) {
+          controller.error(msg.error);
+          ws.close();
+        }
+      });
+
+      ws.on("error", (err: any) => controller.error(err));
+    },
+  });
+
+  return new Response(stream, {
+    headers: {
+      "Content-Type": "application/json",
+      "Cache-Control": "no-cache",
+      Connection: "keep-alive",
+    },
+  });
 }

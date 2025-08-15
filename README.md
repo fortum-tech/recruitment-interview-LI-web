@@ -24,6 +24,9 @@ npm run dev
 
 # Run Storybook (for component development)
 npm run storybook
+
+# Run local mcp gemini server
+node mcp-gemini-server.js
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to view the application.
