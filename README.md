@@ -33,16 +33,19 @@ Open [http://localhost:3000](http://localhost:3000) to view the application.
 ### Core Features to Implement
 
 1. **Streaming Data Processing**
+
    - Implement efficient ReadableStream processing
    - Handle backpressure and memory management
    - Add proper error handling and recovery
 
 2. **MCP Protocol Integration**
+
    - Implement MCP (Model Context Protocol) client
    - Add JSON-RPC 2.0 communication
    - Support streaming MCP responses
 
 3. **Real-time Rendering**
+
    - Optimize chunk rendering performance
    - Implement smooth UI updates
    - Add loading states and error boundaries
@@ -84,6 +87,7 @@ src/
 ## 🔧 Implementation Status
 
 ### ✅ Completed
+
 - Basic Next.js setup with TypeScript
 - Project structure and routing
 - Basic UI components and styling
@@ -91,11 +95,13 @@ src/
 - Type definitions
 
 ### ⚠️ Partially Implemented
+
 - Basic streaming endpoint (`/api/stream-data`)
 - StreamingDemo component (basic structure)
 - useStreaming hook (stub implementation)
 
 ### ❌ Needs Implementation
+
 - Efficient stream processing logic
 - MCP protocol communication
 - Error handling and recovery
@@ -147,18 +153,21 @@ npm run storybook
 ## 💡 Implementation Hints
 
 ### Streaming Best Practices
+
 - Use `ReadableStream` for memory-efficient processing
 - Implement proper backpressure handling
 - Add stream cancellation support
 - Handle network interruptions gracefully
 
 ### MCP Protocol
+
 - Follow JSON-RPC 2.0 specification
 - Implement proper error codes and handling
 - Support both request/response and streaming patterns
 - Add connection lifecycle management
 
 ### Performance Considerations
+
 - Avoid blocking the main thread
 - Implement virtual scrolling for large datasets
 - Use React.memo and useMemo for optimization
@@ -169,6 +178,7 @@ npm run storybook
 Component stories are available at [http://localhost:6006](http://localhost:6006) when running Storybook.
 
 Stories include:
+
 - StreamingDemo component variations
 - MCPClient component states
 - Error handling scenarios

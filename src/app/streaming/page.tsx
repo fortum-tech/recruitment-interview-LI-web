@@ -1,18 +1,23 @@
-import { StreamingDemo } from '@/components/StreamingDemo'
-import { MCPClient } from '@/components/MCPClient'
+import { StreamingDemo } from "@/components/StreamingDemo";
+import { MCPClient } from "@/components/MCPClient";
 
 export default function StreamingPage() {
   return (
     <div className="space-y-8">
       <section className="bg-white p-6 rounded-lg shadow-md">
-        <h2 className="text-3xl font-bold mb-4">Streaming Data Implementation</h2>
+        <h2 className="text-3xl font-bold mb-4">
+          Streaming Data Implementation
+        </h2>
         <p className="text-gray-700 mb-6">
-          This page demonstrates the streaming data functionality. The implementation is partially complete
-          and needs to be finished as part of the interview challenge.
+          This page demonstrates the streaming data functionality. The
+          implementation is partially complete and needs to be finished as part
+          of the interview challenge.
         </p>
-        
+
         <div className="bg-yellow-50 border border-yellow-200 p-4 rounded-lg mb-6">
-          <h3 className="font-semibold text-yellow-800 mb-2">🚧 Implementation Status</h3>
+          <h3 className="font-semibold text-yellow-800 mb-2">
+            🚧 Implementation Status
+          </h3>
           <ul className="text-sm text-yellow-700 space-y-1">
             <li>✅ Basic streaming setup</li>
             <li>⚠️ Stream processing needs optimization</li>
@@ -31,7 +36,8 @@ export default function StreamingPage() {
       <section className="bg-white p-6 rounded-lg shadow-md">
         <h3 className="text-2xl font-bold mb-4">MCP Protocol Client</h3>
         <p className="text-gray-600 mb-4">
-          This component should implement MCP (Model Context Protocol) communication:
+          This component should implement MCP (Model Context Protocol)
+          communication:
         </p>
         <MCPClient />
       </section>
@@ -64,5 +70,5 @@ export default function StreamingPage() {
         </div>
       </section>
     </div>
-  )
+  );
 }

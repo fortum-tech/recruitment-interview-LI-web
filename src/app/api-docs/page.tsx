@@ -4,7 +4,8 @@ export default function ApiDocsPage() {
       <section className="bg-white p-6 rounded-lg shadow-md">
         <h2 className="text-3xl font-bold mb-4">API Documentation</h2>
         <p className="text-gray-700 mb-6">
-          This page documents the available API endpoints for the streaming data application.
+          This page documents the available API endpoints for the streaming data
+          application.
         </p>
       </section>
 
@@ -13,16 +14,16 @@ export default function ApiDocsPage() {
         <div className="bg-gray-50 p-4 rounded-lg mb-4">
           <code className="text-sm">GET /api/stream-data</code>
         </div>
-        
+
         <h4 className="font-semibold mb-2">Description</h4>
         <p className="text-gray-700 mb-4">
-          Returns a streaming response with data chunks. Each chunk is sent as a separate JSON object
-          followed by a newline character.
+          Returns a streaming response with data chunks. Each chunk is sent as a
+          separate JSON object followed by a newline character.
         </p>
 
         <h4 className="font-semibold mb-2">Response Format</h4>
         <pre className="bg-gray-100 p-3 rounded-md text-sm overflow-auto mb-4">
-{`Content-Type: application/json
+          {`Content-Type: application/json
 Cache-Control: no-cache
 Connection: keep-alive
 
@@ -33,7 +34,7 @@ Connection: keep-alive
 
         <h4 className="font-semibold mb-2">Data Chunk Schema</h4>
         <pre className="bg-gray-100 p-3 rounded-md text-sm overflow-auto">
-{`{
+          {`{
   "id": string,
   "title": string,
   "content": string,
@@ -52,18 +53,20 @@ Connection: keep-alive
         <div className="bg-gray-50 p-4 rounded-lg mb-4">
           <code className="text-sm">POST /api/stream-data</code>
         </div>
-        
+
         <div className="bg-red-50 border border-red-200 p-4 rounded-lg mb-4">
-          <h4 className="font-semibold text-red-800 mb-2">🚧 Not Implemented</h4>
+          <h4 className="font-semibold text-red-800 mb-2">
+            🚧 Not Implemented
+          </h4>
           <p className="text-sm text-red-700">
-            This endpoint is part of the interview challenge. Candidates need to implement
-            MCP (Model Context Protocol) communication.
+            This endpoint is part of the interview challenge. Candidates need to
+            implement MCP (Model Context Protocol) communication.
           </p>
         </div>
 
         <h4 className="font-semibold mb-2">Expected Request Format</h4>
         <pre className="bg-gray-100 p-3 rounded-md text-sm overflow-auto mb-4">
-{`{
+          {`{
   "method": "list_resources",
   "params": {
     "cursor": "optional-cursor"
@@ -73,7 +76,7 @@ Connection: keep-alive
 
         <h4 className="font-semibold mb-2">Expected Response Format</h4>
         <pre className="bg-gray-100 p-3 rounded-md text-sm overflow-auto">
-{`{
+          {`{
   "result": {
     "resources": [...],
     "nextCursor": "optional-next-cursor"
@@ -92,7 +95,7 @@ Connection: keep-alive
 
       <section className="bg-white p-6 rounded-lg shadow-md">
         <h3 className="text-2xl font-bold mb-4">Implementation Guidelines</h3>
-        
+
         <div className="grid md:grid-cols-2 gap-6">
           <div>
             <h4 className="font-semibold mb-2">Streaming Best Practices:</h4>
@@ -104,7 +107,7 @@ Connection: keep-alive
               <li>• Implement exponential backoff for retries</li>
             </ul>
           </div>
-          
+
           <div>
             <h4 className="font-semibold mb-2">MCP Protocol Requirements:</h4>
             <ul className="text-sm space-y-1 text-gray-700">
@@ -118,5 +121,5 @@ Connection: keep-alive
         </div>
       </section>
     </div>
-  )
+  );
 }

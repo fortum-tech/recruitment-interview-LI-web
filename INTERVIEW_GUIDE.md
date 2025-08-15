@@ -7,6 +7,7 @@ This interview task evaluates a candidate's ability to work with streaming data,
 ## 🎯 Assessment Areas
 
 ### Technical Skills
+
 - **Streaming Data Processing**: ReadableStream, backpressure, memory management
 - **React Performance**: Optimization techniques, hooks, component lifecycle
 - **TypeScript**: Type safety, interface design, generic types
@@ -14,6 +15,7 @@ This interview task evaluates a candidate's ability to work with streaming data,
 - **Protocol Implementation**: MCP protocol, JSON-RPC 2.0
 
 ### Soft Skills
+
 - **Problem Solving**: Approach to complex technical challenges
 - **Code Quality**: Clean, maintainable, and documented code
 - **Communication**: Ability to explain technical decisions
@@ -22,18 +24,22 @@ This interview task evaluates a candidate's ability to work with streaming data,
 ## 🚀 Interview Structure
 
 ### Phase 1: Project Setup (15 minutes)
+
 1. Candidate reviews the project structure
 2. Installs dependencies and runs the application
 3. Explores existing code and identifies implementation gaps
 4. Asks clarifying questions about requirements
 
 ### Phase 2: Core Implementation (90 minutes)
+
 1. **Streaming Logic** (30 minutes)
+
    - Implement efficient stream processing in `useStreaming` hook
    - Handle backpressure and memory management
    - Add proper error handling
 
 2. **Component Development** (30 minutes)
+
    - Complete the `StreamingDemo` component
    - Implement real-time chunk rendering
    - Add loading states and error boundaries
@@ -44,12 +50,14 @@ This interview task evaluates a candidate's ability to work with streaming data,
    - Handle protocol-specific errors
 
 ### Phase 3: Testing & Optimization (30 minutes)
+
 1. Write unit tests for key components
 2. Optimize performance for large data streams
 3. Add error recovery mechanisms
 4. Document implementation decisions
 
 ### Phase 4: Code Review & Discussion (15 minutes)
+
 1. Candidate presents their solution
 2. Discusses technical decisions and trade-offs
 3. Explains potential improvements and scaling considerations
@@ -58,6 +66,7 @@ This interview task evaluates a candidate's ability to work with streaming data,
 ## 📊 Evaluation Rubric
 
 ### Excellent (4/4)
+
 - Implements all core features with optimal performance
 - Demonstrates deep understanding of streaming concepts
 - Writes clean, well-documented, and tested code
@@ -65,6 +74,7 @@ This interview task evaluates a candidate's ability to work with streaming data,
 - Shows strong architectural thinking
 
 ### Good (3/4)
+
 - Implements most core features with good performance
 - Shows solid understanding of streaming and React
 - Writes mostly clean and functional code
@@ -72,6 +82,7 @@ This interview task evaluates a candidate's ability to work with streaming data,
 - Makes reasonable architectural decisions
 
 ### Satisfactory (2/4)
+
 - Implements basic streaming functionality
 - Shows basic understanding of concepts
 - Code works but may have performance issues
@@ -79,6 +90,7 @@ This interview task evaluates a candidate's ability to work with streaming data,
 - Basic architectural approach
 
 ### Needs Improvement (1/4)
+
 - Struggles with basic implementation
 - Limited understanding of streaming concepts
 - Code has significant issues or doesn't work
@@ -88,6 +100,7 @@ This interview task evaluates a candidate's ability to work with streaming data,
 ## 🔍 Key Evaluation Points
 
 ### Code Quality
+
 - [ ] Clean, readable code structure
 - [ ] Proper TypeScript usage
 - [ ] Consistent naming conventions
@@ -95,6 +108,7 @@ This interview task evaluates a candidate's ability to work with streaming data,
 - [ ] Separation of concerns
 
 ### Streaming Implementation
+
 - [ ] Efficient ReadableStream processing
 - [ ] Proper memory management
 - [ ] Backpressure handling
@@ -102,6 +116,7 @@ This interview task evaluates a candidate's ability to work with streaming data,
 - [ ] Error recovery mechanisms
 
 ### React Performance
+
 - [ ] Optimal re-rendering strategies
 - [ ] Proper hook usage
 - [ ] Component memoization where appropriate
@@ -109,6 +124,7 @@ This interview task evaluates a candidate's ability to work with streaming data,
 - [ ] Virtual scrolling for large datasets
 
 ### Error Handling
+
 - [ ] Comprehensive error boundaries
 - [ ] User-friendly error messages
 - [ ] Graceful degradation
@@ -116,6 +132,7 @@ This interview task evaluates a candidate's ability to work with streaming data,
 - [ ] Timeout handling
 
 ### Testing
+
 - [ ] Unit tests for core functionality
 - [ ] Integration tests for streaming
 - [ ] Error scenario testing
@@ -125,18 +142,21 @@ This interview task evaluates a candidate's ability to work with streaming data,
 ## 💡 Discussion Questions
 
 ### Technical Deep Dive
+
 1. "How would you handle a stream with millions of data chunks?"
 2. "What are the trade-offs between server-side and client-side streaming?"
 3. "How would you implement stream reconnection after network failure?"
 4. "What security considerations are important for streaming APIs?"
 
 ### Architecture & Design
+
 1. "How would you scale this solution for multiple concurrent users?"
 2. "What monitoring and observability would you add?"
 3. "How would you handle different data formats in the stream?"
 4. "What caching strategies would you implement?"
 
 ### Problem Solving
+
 1. "If the stream becomes very slow, how would you maintain good UX?"
 2. "How would you debug performance issues in streaming applications?"
 3. "What would you do if the MCP server becomes unresponsive?"
@@ -185,14 +205,14 @@ Soft Skills:
 Overall Score: ___/32
 
 Strengths:
-- 
-- 
-- 
+-
+-
+-
 
 Areas for Improvement:
-- 
-- 
-- 
+-
+-
+-
 
 Recommendation: [ ] Hire [ ] No Hire [ ] Borderline
 
