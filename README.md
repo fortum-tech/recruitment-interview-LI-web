@@ -118,8 +118,8 @@ Candidates will be evaluated on:
 1. **Code Quality**: Clean, readable, and maintainable code. Also UI/UX and performance aspects are considered.
 2. **Researching**: Researching and exploring new ways of getting the challenge done in some way or another.
 3. **Prioritization**: You should also choose where you invest time in the challenge, so if you e.g. leave the UI more unfinished over being able to focus on the AI streaming part, so that can be considered a valid choice.
-4. **Error Handling**: Robust basic error recovery
-5. **Testing**: Good enough test coverage
-6. **Documentation**: Documenting the approach you have taken when opening the submission PR
+4. **Error Handling**: Robust basic error recovery.
+5. **Testing**: Good enough test coverage.
+6. **Documentation**: Documenting the approach you have taken when opening the submission PR.
 
 Good luck with the implementation! 🚀
