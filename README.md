@@ -53,6 +53,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the application.
 ### Submitting the task
 
 - When you are done open a PR to the private fork repository you were working on.
+- You are expected to open the PR withing 48 hours of receiving the task.
 
 ## 🏗 Project Structure
 
