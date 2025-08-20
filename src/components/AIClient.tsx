@@ -67,7 +67,7 @@ export function AIClient() {
         <textarea
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
-          className="w-full h-32 p-3 border border-gray-300 rounded-md font-mono text-sm"
+          className="w-full h-32 p-3 border border-gray-300 rounded-md font-mono text-sm text-black"
           placeholder="Enter request..."
         />
       </div>

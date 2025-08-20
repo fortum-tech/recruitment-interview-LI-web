@@ -13,7 +13,7 @@ export function StreamingBasic() {
   const startStreaming = async () => {}; //TODO
 
   return (
-    <div className="streaming-container">
+    <div className="streaming-container text-black">
       <div className="flex justify-between items-center mb-4">
         <h4 className="text-lg font-semibold">Streaming with mock data</h4>
         <button
