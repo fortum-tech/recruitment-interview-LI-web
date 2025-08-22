@@ -34,7 +34,8 @@ export function AIClient() {
               AI model like Google Gemini and use the help of the model to get
               information about Fortum's electricity contracts based on current
               information about electricity contracts on this page:
-              https://www.fortum.com/fi/sahkoa/en/electricity-for-home .
+              https://www.fortum.com/fi/sahkoa/en/electricity-for-home . So
+              think how you can make the AI model use that live content.
             </li>
             <li>
               • The AI model should preferably also return you the data in

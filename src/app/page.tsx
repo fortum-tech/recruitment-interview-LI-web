@@ -69,10 +69,12 @@ export default function Home() {
         </section>
 
         <section className="bg-white p-6 rounded-lg shadow-md">
-          <h3 className="text-2xl font-bold mb-4">Streaming Client</h3>
+          <h3 className="text-2xl font-bold mb-4">
+            2. Streaming responses from an AI model
+          </h3>
           <p className="text-gray-600 mb-4">
-            2. This part should implement streamable communication with an AI
-            model
+            In this part you should implement streamable communication with an
+            AI model
           </p>
           <AIClient />
         </section>

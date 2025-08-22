@@ -41,7 +41,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the application.
 
    - Implement basic UI-component for displaying the streamed
      contract data based on the mock data you get from the mock-API
-     already. See [main page](./src/app/page.tsx) and [StreamingBasic.tsx](./src/components/StreamingBasic.tsx) for more details.
+     already. See [main page](./src/app/page.tsx) (or the [deployed version of it](http://localhost:3000)) and [StreamingBasic.tsx](./src/components/StreamingBasic.tsx) for more details.
 
 2. **Streaming from an AI model**
 
